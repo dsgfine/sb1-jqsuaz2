@@ -1,14 +1,36 @@
-<template>
-  <div class="min-h-screen bg-red-50 flex flex-col">
-    <Header />
-    <main class="flex-grow container mx-auto px-4 py-8">
-      <router-view></router-view>
-    </main>
-    <Footer />
-  </div>
-</template>
+<script setup lang="ts">
+import { onLaunch, onShow, onHide } from '@dcloudio/uni-app'
 
-<script lang="ts" setup>
-import Header from './components/Header.vue'
-import Footer from './components/Footer.vue'
+onLaunch(() => {
+  console.log('App Launch')
+})
+
+onShow(() => {
+  console.log('App Show')
+})
+
+onHide(() => {
+  console.log('App Hide')
+})
 </script>
+
+<style>
+@import './index.css';
+
+/* 微信小程序兼容性样式 */
+page {
+  background-color: #f9fafb;
+}
+
+/* 统一按钮样式 */
+.uni-btn {
+  border: none;
+  margin: 0;
+  padding: 0;
+  background: none;
+  line-height: inherit;
+}
+.uni-btn::after {
+  border: none;
+}
+</style>
